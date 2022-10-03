@@ -7,6 +7,7 @@ React single page application utilizes following NPN packages and Tech used to d
 - React Routers
 - TypeScript
 
+Ref: Working application gif available within `./single-page-application/resources/`
 ![](./single-page-application/resources/Website-DifferentViewPoints.gif)
 ![](./single-page-application/resources/SinglePageNavigations.gif)
 ![](./single-page-application/resources/MemoryGame.gif)
