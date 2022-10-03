@@ -22,13 +22,17 @@ const IdentifyDifference = () => {
     let imageNumber = Number(imageLocation.substr(27,2)) - 1
     if (imageNumber > 0) {
       setImageLocation(`/identifyDifferenceImages/q0${imageNumber}.png`);
-    }
+      if (disableNext) setDisableNext(false);
+    } 
+    if (imageNumber === 1) setDisablePrev(true);
   }
   const handleNextClick = () => {
     let imageNumber = Number(imageLocation.substr(27,2)) + 1
     if (imageNumber < 10) {
       setImageLocation(`/identifyDifferenceImages/q0${imageNumber}.png`);
-    }
+      if (disablePrev) setDisablePrev(false);
+    } 
+    if (imageNumber === 9) setDisableNext(true);
   }
 
   return (
@@ -49,15 +53,15 @@ const IdentifyDifference = () => {
             textDecoration: 'none',
           }}
         >
-          Identify Difference
+          SPOT THE DIFFERENCE
         </Typography>
       </Box>
       <Stack direction="row" spacing={2}>
-        <Button size="large" startIcon={<ArrowBackIosNewIcon />} sx={{ my: 8 }} onClick={handlePrevClick} />
+        <Button size="large" startIcon={<ArrowBackIosNewIcon />} sx={{ my: 8 }} onClick={handlePrevClick} disabled={disablePrev} />
         <Paper elevation={6} >
           <img src={imageLocation} />
         </Paper>
-        <Button size="large" endIcon={<ArrowForwardIosIcon />}  sx={{ my: 8 }} onClick={handleNextClick} />
+        <Button size="large" endIcon={<ArrowForwardIosIcon />}  sx={{ my: 8 }} onClick={handleNextClick} disabled={disableNext} />
       </Stack>
       <Button
         size="large"
